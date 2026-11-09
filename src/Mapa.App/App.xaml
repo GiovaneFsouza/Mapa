@@ -1,0 +1,24 @@
+﻿<Application x:Class="Mapa.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Mapa.App"
+             xmlns:conv="clr-namespace:Mapa.App.Converters"
+             xmlns:vm="clr-namespace:Mapa.App.ViewModels"
+             xmlns:views="clr-namespace:Mapa.App.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <conv:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <conv:FractionToGridLengthConverter x:Key="FractionToGridLengthConverter" />
+        <conv:HexColorToBrushConverter x:Key="HexColorToBrushConverter" />
+        <conv:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+        <conv:ZeroToVisibilityConverter x:Key="ZeroToVisibilityConverter" />
+        <conv:EnumEqualsVisibilityConverter x:Key="EnumEqualsVisibilityConverter" />
+
+        <DataTemplate DataType="{x:Type vm:RankingViewModel}">
+            <views:RankingBarsControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:RegionalQuantityViewModel}">
+            <views:RegionalQuantityControl />
+        </DataTemplate>
+    </Application.Resources>
+</Application>

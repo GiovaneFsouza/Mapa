@@ -1,0 +1,71 @@
+<UserControl x:Class="Mapa.App.Views.RegionalQuantityControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Mapa.App.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=vm:RegionalQuantityViewModel}">
+    <StackPanel MaxWidth="400" HorizontalAlignment="Stretch">
+        <TextBlock Text="Quantidade por região" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,6" HorizontalAlignment="Center" />
+
+        <ItemsControl ItemsSource="{Binding Regions}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type vm:RegionBarViewModel}">
+                    <StackPanel Margin="0,0,0,8">
+                        <TextBlock FontSize="11" FontWeight="Bold">
+                            <Run Text="{Binding RegionLabel, Mode=OneWay}" />
+                            <Run Text=" (" /><Run Text="{Binding Total, Mode=OneWay}" /><Run Text=")" />
+                        </TextBlock>
+
+                        <Grid Margin="0,3,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Margin="0,0,8,0"
+                                  ToolTip="{Binding DataContext.LowTooltip, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" MinWidth="34" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" MinWidth="22" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" FontSize="10" VerticalAlignment="Center"
+                                           Text="{Binding DataContext.LowLabel, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                                <Grid Grid.Column="1" Height="10" Background="#F0F0F0" VerticalAlignment="Center" Margin="0,0,4,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{Binding LowFraction, Converter={StaticResource FractionToGridLengthConverter}}" />
+                                        <ColumnDefinition Width="{Binding LowFraction, Converter={StaticResource FractionToGridLengthConverter}, ConverterParameter=Invert}" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Background="#2166AC" CornerRadius="2" />
+                                </Grid>
+                                <TextBlock Grid.Column="2" Text="{Binding LowCount}" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Grid>
+                            <Grid Grid.Column="1" Margin="8,0,0,0"
+                                  ToolTip="{Binding DataContext.HighTooltip, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" MinWidth="34" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" MinWidth="22" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" FontSize="10" VerticalAlignment="Center"
+                                           Text="{Binding DataContext.HighLabel, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                                <Grid Grid.Column="1" Height="10" Background="#F0F0F0" VerticalAlignment="Center" Margin="0,0,4,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{Binding HighFraction, Converter={StaticResource FractionToGridLengthConverter}}" />
+                                        <ColumnDefinition Width="{Binding HighFraction, Converter={StaticResource FractionToGridLengthConverter}, ConverterParameter=Invert}" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="0" Background="#E74C3C" CornerRadius="2" />
+                                </Grid>
+                                <TextBlock Grid.Column="2" Text="{Binding HighCount}" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <TextBlock Text="Sem eventos no período/filtro selecionado." FontSize="11" Foreground="#999999" TextWrapping="Wrap"
+                   Visibility="{Binding Regions.Count, Converter={StaticResource ZeroToVisibilityConverter}}" />
+    </StackPanel>
+</UserControl>

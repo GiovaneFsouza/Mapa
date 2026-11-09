@@ -1,0 +1,234 @@
+{
+  "rabbitmq": {
+    "host": "SEU_HOST",
+    "port": 5552,
+    "user": "SEU_USUARIO",
+    "password": "SUA_SENHA",
+    "stream": "stream_gen"
+  },
+  "postgresql": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "bded_db",
+    "user": "SEU_USUARIO",
+    "password": "SUA_SENHA"
+  },
+  "output": {
+    "bded_dir": "bded",
+    "enable_csv": true,
+    "enable_postgresql": false,
+    "debug_pmu": "",
+    "enable_vtcd": true,
+    "enable_frequency": true
+  },
+  "status": {
+    "enabled": true,
+    "interval_minutes": 1
+  },
+  "detectors": {
+    "vtcd": {
+      "timeout_ms": 60000,
+      "bands": {
+        "default": {
+          "lower_pu": 0.9,
+          "upper_pu": 1.1
+        },
+        "kv500": {
+          "lower_pu": 0.945,
+          "upper_pu": 1.155
+        }
+      }
+    },
+    "frequency": {
+      "ema_alpha": 0.095,
+      "entry_low_hz": 59.8,
+      "entry_high_hz": 60.2,
+      "exit_low_hz": 59.9,
+      "exit_high_hz": 60.1,
+      "min_duration_ms": 100,
+      "timeout_ms": 60000
+    }
+  },
+  "pmus": [
+    {
+      "id": "GPA_UFSC",
+      "active": true,
+      "label": "UFSC - Florianópolis SC",
+      "kv_ll": 0.38,
+      "latitude": -27.5999722,
+      "longitude": -48.5175778,
+      "bindings": {
+        "A": "GPA_UFSC:VA.MAG",
+        "B": "GPA_UFSC:VB.MAG",
+        "C": "GPA_UFSC:VC.MAG",
+        "FREQ": "GPA_UFSC:FREQ",
+        "FLAG": "GPA_UFSC:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UTFPR",
+      "active": true,
+      "label": "UTFPR - Curitiba PR",
+      "kv_ll": 0.22,
+      "latitude": -25.4395972,
+      "longitude": -49.2687333,
+      "bindings": {
+        "A": "GPA_UTFPR:VA.MAG",
+        "B": "GPA_UTFPR:VB.MAG",
+        "C": "GPA_UTFPR:VC.MAG",
+        "FREQ": "GPA_UTFPR:FREQ",
+        "FLAG": "GPA_UTFPR:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFRGS",
+      "active": true,
+      "label": "UFRGS - Porto Alegre RS",
+      "kv_ll": 0.22,
+      "latitude": -30.02,
+      "longitude": -51.22,
+      "bindings": {
+        "A": "GPA_UFRGS:VA.MAG",
+        "B": "GPA_UFRGS:VB.MAG",
+        "C": "GPA_UFRGS:VC.MAG",
+        "FREQ": "GPA_UFRGS:FREQ",
+        "FLAG": "GPA_UFRGS:FLAG"
+      }
+    },
+    {
+      "id": "GPA_PTI",
+      "active": true,
+      "label": "PTI - Foz do Iguaçu PR",
+      "kv_ll": 0.22,
+      "latitude": -25.435919,
+      "longitude": -54.597089,
+      "bindings": {
+        "A": "GPA_PTI:VA.MAG",
+        "B": "GPA_PTI:VB.MAG",
+        "C": "GPA_PTI:VC.MAG",
+        "FREQ": "GPA_PTI:FREQ",
+        "FLAG": "GPA_PTI:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UNICAMP",
+      "active": true,
+      "label": "UNICAMP - Campinas SP",
+      "kv_ll": 0.22,
+      "latitude": -22.821167,
+      "longitude": -47.066207,
+      "bindings": {
+        "A": "GPA_UNICAMP:VA.MAG",
+        "B": "GPA_UNICAMP:VB.MAG",
+        "C": "GPA_UNICAMP:VC.MAG",
+        "FREQ": "GPA_UNICAMP:FREQ",
+        "FLAG": "GPA_UNICAMP:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFMG",
+      "active": true,
+      "label": "UFMG - Belo Horizonte MG",
+      "kv_ll": 0.22,
+      "latitude": -19.8695111,
+      "longitude": -43.9618611,
+      "bindings": {
+        "A": "GPA_UFMG:VA.MAG",
+        "B": "GPA_UFMG:VB.MAG",
+        "C": "GPA_UFMG:VC.MAG",
+        "FREQ": "GPA_UFMG:FREQ",
+        "FLAG": "GPA_UFMG:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UNB",
+      "active": true,
+      "label": "UNB - Brasília DF",
+      "kv_ll": 0.38,
+      "latitude": -15.7659667,
+      "longitude": -47.8720889,
+      "bindings": {
+        "A": "GPA_UNB:VA.MAG",
+        "B": "GPA_UNB:VB.MAG",
+        "C": "GPA_UNB:VC.MAG",
+        "FREQ": "GPA_UNB:FREQ",
+        "FLAG": "GPA_UNB:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFMT",
+      "active": true,
+      "label": "UFMT - Cuiabá MT",
+      "kv_ll": 0.22,
+      "latitude": -15.6078833,
+      "longitude": -56.0635139,
+      "bindings": {
+        "A": "GPA_UFMT:VA.MAG",
+        "B": "GPA_UFMT:VB.MAG",
+        "C": "GPA_UFMT:VC.MAG",
+        "FREQ": "GPA_UFMT:FREQ",
+        "FLAG": "GPA_UFMT:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFPE",
+      "active": true,
+      "label": "UFPE - Recife PE",
+      "kv_ll": 0.38,
+      "latitude": -8.0531167,
+      "longitude": -34.9545667,
+      "bindings": {
+        "A": "GPA_UFPE:VA.MAG",
+        "B": "GPA_UFPE:VB.MAG",
+        "C": "GPA_UFPE:VC.MAG",
+        "FREQ": "GPA_UFPE:FREQ",
+        "FLAG": "GPA_UFPE:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFC",
+      "active": true,
+      "label": "UFC - Fortaleza CE",
+      "kv_ll": 0.38,
+      "latitude": -3.7437667,
+      "longitude": -38.5767611,
+      "bindings": {
+        "A": "GPA_UFC:VA.MAG",
+        "B": "GPA_UFC:VB.MAG",
+        "C": "GPA_UFC:VC.MAG",
+        "FREQ": "GPA_UFC:FREQ",
+        "FLAG": "GPA_UFC:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFPA",
+      "active": true,
+      "label": "UFPA - Belém PA",
+      "kv_ll": 0.22,
+      "latitude": -1.4742306,
+      "longitude": -48.4519611,
+      "bindings": {
+        "A": "GPA_UFPA:VA.MAG",
+        "B": "GPA_UFPA:VB.MAG",
+        "C": "GPA_UFPA:VC.MAG",
+        "FREQ": "GPA_UFPA:FREQ",
+        "FLAG": "GPA_UFPA:FLAG"
+      }
+    },
+    {
+      "id": "GPA_UFAM",
+      "active": true,
+      "label": "UFAM - Manaus AM",
+      "kv_ll": 0.22,
+      "latitude": -3.0883972,
+      "longitude": -59.9633056,
+      "bindings": {
+        "A": "GPA_UFAM:VA.MAG",
+        "B": "GPA_UFAM:VB.MAG",
+        "C": "GPA_UFAM:VC.MAG",
+        "FREQ": "GPA_UFAM:FREQ",
+        "FLAG": "GPA_UFAM:FLAG"
+      }
+    }
+  ]
+}

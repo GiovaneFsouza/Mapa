@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mapa.Core\Mapa.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4078.44" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>MPleno_GeoEventos</AssemblyName>
+    <Product>MPleno GeoEventos</Product>
+    <AssemblyTitle>MPleno GeoEventos</AssemblyTitle>
+    <Description>Mapa de eventos de VTCD e desvio de frequência das PMUs do projeto MPleno (ONS/FEESC LabPlan-UFSC)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Web\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <!-- Dev-time convenience: ships a sample PMU database so F5 always has data in XML\. -->
+    <None Include="XML\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Official Microsoft WebView2 Evergreen Bootstrapper, used to self-heal machines missing the
+         runtime. Embedded (not a loose Content/None file) because PublishSingleFile silently drops
+         a loose .exe placed under a folder named "Runtime"; embedding sidesteps that entirely. -->
+    <EmbeddedResource Include="Runtime\MicrosoftEdgeWebView2Setup.exe" />
+  </ItemGroup>
+
+</Project>

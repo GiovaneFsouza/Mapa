@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Mapa.App/Mapa.App.csproj" />
+    <Project Path="src/Mapa.Core.Tests/Mapa.Core.Tests.csproj" />
+    <Project Path="src/Mapa.Core/Mapa.Core.csproj" />
+  </Folder>
+</Solution>

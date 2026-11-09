@@ -1,0 +1,3 @@
+pmu_id,source_id,event_type,date,start_time,end_time,extreme_value,quality
+GPA_UFRGS,4,AMT,2026-07-06,14:35:45.437,14:35:45.471,0.7213,00000000
+GPA_UFRGS,3,AMT,2026-07-20,02:24:24.610,02:24:24.910,0.7478,00000000

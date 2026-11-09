@@ -1,0 +1,3 @@
+pmu_id,source_id,event_type,date,start_time,end_time,extreme_value,quality
+GPA_UNICAMP,1,Underfrequency,2026-06-10,18:07:12.173,18:07:24.803,59.592,00000000
+GPA_UNICAMP,2,EMT,2026-06-20,09:15:30.250,09:15:30.390,1.18,00000000

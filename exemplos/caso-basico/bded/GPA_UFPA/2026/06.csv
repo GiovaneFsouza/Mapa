@@ -1,0 +1,4 @@
+pmu_id,source_id,event_type,date,start_time,end_time,extreme_value,quality
+GPA_UFPA,1,Underfrequency,2026-06-10,18:07:12.405,18:07:27.764,59.615,00000000
+GPA_UFPA,1,Overfrequency,2026-06-15,03:41:50.620,03:41:57.220,60.27,00000000
+GPA_UFPA,2,AMT,2026-06-22,17:19:59.679,17:19:59.777,0.7502,00000000

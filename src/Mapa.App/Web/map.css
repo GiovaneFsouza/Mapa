@@ -1,0 +1,154 @@
+html, body, #map {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pmu-popup {
+  font-family: Segoe UI, Tahoma, sans-serif;
+  font-size: 12px;
+  max-width: none;
+  max-height: 260px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.pmu-popup h4 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+}
+
+.pmu-popup table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.pmu-popup th, .pmu-popup td {
+  text-align: left;
+  padding: 2px 6px 2px 0;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+/* Keep OpenStreetMap's required credit (their tile usage policy mandates it), just unobtrusive:
+   small, semi-transparent, no background chrome; brightens on hover so it stays legible/clickable. */
+.leaflet-control-attribution {
+  font-size: 9px;
+  line-height: 1.4;
+  padding: 0 4px;
+  background: rgba(255, 255, 255, 0.55);
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+}
+
+.leaflet-control-attribution:hover {
+  opacity: 1;
+}
+
+.detection-rank-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-size: 9px;
+  font-weight: 700;
+  color: #111;
+  text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.detection-rank-label::before {
+  display: none;
+}
+
+.first-detection-marker {
+  border-radius: 50%;
+  border: 1.5px solid #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7C4DFF;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.9;
+  box-sizing: border-box;
+  pointer-events: none;
+  text-shadow: 0 0 2px rgba(255,255,255,0.9), 0 0 2px rgba(255,255,255,0.9);
+}
+
+.pmu-detection-rank {
+  margin: 0 0 6px 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1565C0;
+}
+
+@keyframes detection-ring {
+  /* ring starts invisible (applied during animation-delay via fill-mode:backwards) */
+  0%   { transform: scale(1);   opacity: 0;    }
+  3%   { transform: scale(1);   opacity: 0.85; } /* flash on  ~70 ms into its slot  */
+  15%  { transform: scale(4.5); opacity: 0;    } /* expand + fade over ~0.36 s      */
+  16%  { transform: scale(1);   opacity: 0;    } /* snap back invisible              */
+  100% { transform: scale(1);   opacity: 0;    } /* silent until next cycle          */
+}
+
+.detection-ring {
+  border-radius: 50%;
+  border: 2.5px solid currentColor;
+  animation: detection-ring 2.4s ease-out infinite;
+  animation-fill-mode: backwards; /* keep ring invisible during initial-pause delay */
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.mapa-cluster-icon {
+  background-clip: padding-box;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  /* Small enough that the bubble can stay close to the 9px individual markers. */
+  font-size: 10px;
+  line-height: 1;
+  font-family: Segoe UI, Tahoma, sans-serif;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-sizing: border-box;
+}
+
+.propagation-speed-control {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  padding: 6px 10px;
+  font-family: Segoe UI, Tahoma, sans-serif;
+  font-size: 11px;
+  color: #333;
+}
+
+.propagation-speed-control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.propagation-speed-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.propagation-speed-row input {
+  width: 140px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.propagation-speed-value {
+  min-width: 34px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

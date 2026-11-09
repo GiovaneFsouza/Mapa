@@ -1,0 +1,34 @@
+# --- Build / IDE -------------------------------------------------------------
+bin/
+obj/
+publish/
+.vs/
+.vscode/
+*.user
+*.suo
+TestResults/
+.claude/
+
+# --- Configuração real: contém host, usuário e senha do RabbitMQ/PostgreSQL ---
+# Use exemplos/caso-basico/config.json como modelo.
+/config.json
+/config.json.bak
+*.bak
+
+# --- Dados reais de medição e material de trabalho (ficam só na máquina local) ---
+/bded/
+/bded_vtcd_maio/
+/DetectorEvento/
+/_envio/
+/_guardado/
+/Relatório/
+/Reunião/
+/test/
+/*.xlsx
+/*.zip
+/*.csv
+/*.xml
+/tools/converter_vtcd_maio.py
+
+# Bases XML de PMUs do formato antigo (o app atual lê as PMUs do config.json)
+/src/Mapa.App/XML/
