@@ -38,7 +38,7 @@ O repositório já traz um caso pronto em [`exemplos/caso-basico`](exemplos/caso
 12 PMUs da rede MedFasee e 75 eventos **sintéticos** em junho e julho de 2026.
 
 ```bash
-git clone https://github.com/SEU-USUARIO/Mapa.git
+git clone https://github.com/GiovaneFsouza/Mapa.git
 cd Mapa
 dotnet run --project src/Mapa.App
 ```
